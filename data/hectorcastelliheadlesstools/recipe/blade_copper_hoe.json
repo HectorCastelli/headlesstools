@@ -16,8 +16,8 @@
   "result": {
     "components": {
       "minecraft:custom_data": {
-        "datapack_id": "hectorcastelliheadlesstools",
-        "type": "hectorcastelliheadlesstools_blade_copper_hoe"
+        "headlesstools": true,
+        "type": "tool_blade"
       },
       "minecraft:item_model": "hectorcastelliheadlesstools:blade_copper_hoe",
       "minecraft:item_name": "Detached Copper Hoe",

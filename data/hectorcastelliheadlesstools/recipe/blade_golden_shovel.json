@@ -16,8 +16,8 @@
   "result": {
     "components": {
       "minecraft:custom_data": {
-        "datapack_id": "hectorcastelliheadlesstools",
-        "type": "hectorcastelliheadlesstools_blade_golden_shovel"
+        "headlesstools": true,
+        "type": "tool_blade"
       },
       "minecraft:item_model": "hectorcastelliheadlesstools:blade_golden_shovel",
       "minecraft:item_name": "Detached Golden Shovel",

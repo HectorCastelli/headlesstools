@@ -13,8 +13,8 @@
   "result": {
     "components": {
       "minecraft:custom_data": {
-        "datapack_id": "hectorcastelliheadlesstools",
-        "type": "hectorcastelliheadlesstools_handle"
+        "headlesstools": true,
+        "type": "handle"
       },
       "minecraft:item_model": "hectorcastelliheadlesstools:handle",
       "minecraft:item_name": "Mounting Handle",
