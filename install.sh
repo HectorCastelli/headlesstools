@@ -19,7 +19,7 @@ TEMP_ZIP=$(mktemp -u /tmp/minecraft_pack.XXXXXX.zip)
 echo "📦 Zipping current directory into $PACK_NAME..."
 
 # Zips the contents of the current folder, excluding the zip itself and the script
-zip -rq "$TEMP_ZIP" . -x "install.sh" ".git/*" ".vscode/*"
+zip -rq "$TEMP_ZIP" . -x "*.sh" ".git/*" ".vscode/*"
 if [ ! -f "$TEMP_ZIP" ]; then
 	echo "❌ Error: Zip file was not created. Check your permissions."
 	exit 1
