@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:iron_nugget"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "type": "hectorcastelliheadlesstools_anchor"
+      },
+      "minecraft:item_model": "hectorcastelliheadlesstools:anchor",
+      "minecraft:item_name": "Mounting Anchor"
+    },
+    "count": 4,
+    "id": "minecraft:iron_nugget"
+  }
+}
