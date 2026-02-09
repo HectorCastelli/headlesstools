@@ -10,7 +10,8 @@
         "type": "hectorcastelliheadlesstools_anchor"
       },
       "minecraft:item_model": "hectorcastelliheadlesstools:anchor",
-      "minecraft:item_name": "Mounting Anchor"
+      "minecraft:item_name": "Mounting Anchor",
+      "minecraft:max_stack_size": 32
     },
     "count": 1,
     "id": "minecraft:copper_nugget"

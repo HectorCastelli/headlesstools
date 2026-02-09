@@ -16,7 +16,8 @@
         "type": "hectorcastelliheadlesstools_handle"
       },
       "minecraft:item_model": "hectorcastelliheadlesstools:handle",
-      "minecraft:item_name": "Mounting Handle"
+      "minecraft:item_name": "Mounting Handle",
+      "minecraft:max_stack_size": 64
     },
     "count": 1,
     "id": "minecraft:stick"
