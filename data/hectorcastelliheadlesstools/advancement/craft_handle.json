@@ -1,0 +1,29 @@
+{
+  "parent": "story/upgrade_tools",
+  "criteria": {
+    "learned_handle": {
+      "conditions": {
+        "recipe": "hectorcastelliheadlesstools:handle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "display": {
+    "description": {
+      "text": "Craft some handles"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:stick"
+    },
+    "title": {
+      "text": "A good handle on things"
+    }
+  },
+  "requirements": [
+    [
+      "learned_handle"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
