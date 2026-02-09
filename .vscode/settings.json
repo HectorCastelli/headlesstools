@@ -1,0 +1,9 @@
+{
+  "workbench.iconTheme": "mc-dp-icons",
+  "cSpell.words": [
+    "hectorcastelliheadlesstools"
+  ],
+  "files.associations": {
+    "*.mcmeta": "json"
+  }
+}
