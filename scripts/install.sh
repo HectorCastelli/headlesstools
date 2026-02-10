@@ -19,6 +19,7 @@ DIST_DIR="$GIT_ROOT/dist"
 DATAPACK_DEST="$INSTANCE_PATH/saves/$WORLD_NAME/datapacks"
 RESOURCE_DEST="$INSTANCE_PATH/resourcepacks"
 
+rm -rf "$DIST_DIR"
 mkdir -p "$DIST_DIR"
 
 echo "📦 Creating single pack..."
