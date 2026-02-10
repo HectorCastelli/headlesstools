@@ -2,6 +2,8 @@
 summon item ~ ~ ~ {Tags:["temp_item"], Item:{id:"minecraft:stone", count:1}}
 # Set the ID from the entity passed to this function
 data modify entity @e[tag=temp_item, limit=1] Item.id set from entity @s Item.id
+# Transfer enchantments from blade
+data modify entity @e[tag=temp_item, limit=1] Item.components."minecraft:enchantments" set from entity @s Item.components."minecraft:enchantments"
 # Remove the leftover tag
 tag @e[tag=temp_item] remove temp_item
 # Remove a nearby stick

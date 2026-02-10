@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PACK_NAME="hectorcastelliheadlesstools"
-VERSION="1.0.0"
+VERSION="1.1.0"
 
 GIT_ROOT=$(git rev-parse --show-toplevel)
 ENV_FILE="$(dirname $0)/.env"
