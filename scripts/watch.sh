@@ -17,12 +17,10 @@ while true; do
 	CURRENT_MOD=$(get_last_mod)
 
 	if [[ "$CURRENT_MOD" != "$LAST_MOD" ]]; then
+		clear # Clear screen for better visualization
 		echo "⚡ Change detected! Running $TARGET_SCRIPT..."
-
-		chmod +x "$TARGET_SCRIPT"
-		$TARGET_SCRIPT
-
-		# Update the timestamp so we don't trigger again until the next change
+		# Run and clear output on success
+		$TARGET_SCRIPT && clear || echo "❌ Failure!"
 		LAST_MOD=$(get_last_mod)
 		echo "✅ Done. Waiting for next change..."
 	fi

@@ -1,8 +1,9 @@
 {
   "recommendations": [
+    "minecraftcommands.syntax-mcfunction",
+    "misodee.vscode-nbt",
     "spgoding.datapack-language-server",
     "superant.mc-dp-icons",
-    "thesalt.datapack-optimization",
-    "minecraftcommands.syntax-mcfunction"
+    "thesalt.datapack-optimization"
   ]
 }
