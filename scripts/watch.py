@@ -23,7 +23,7 @@ def get_pack_from_path(file_path):
 
 def watch():
     logging.info("Rebuilding all packs")
-    clean_build
+    clean_build()
     for d in PACKS_DIR.iterdir():
         if d.is_dir():
             build_files = run_build(d.name)

@@ -8,6 +8,9 @@ from utils import PREFIX, REPO_ROOT, DIST_DIR, PACKS_DIR
 
 
 def run_build(pack_name):
+    """
+    Builds a pack directory into the required .zip files
+    """
     pack_src = PACKS_DIR / pack_name
     mcmeta_file = PACKS_DIR / pack_name / "pack.mcmeta"
     if not pack_src.exists():
@@ -78,9 +81,12 @@ def run_build(pack_name):
 
 
 def clean_build():
+    """
+    Cleans and reinitializes the DIST_DIR so that builds can proceed as usual
+    """
     # Initialize dist directory
     shutil.rmtree(DIST_DIR, ignore_errors=True)
-    DIST_DIR.mkdir(exist_ok=True)
+    DIST_DIR.mkdir(parents=True, exist_ok=True)
 
 
 if __name__ == "__main__":
@@ -89,7 +95,7 @@ if __name__ == "__main__":
     # Handle single arg or build all
     target = sys.argv[1] if len(sys.argv) > 1 else None
 
-    clean_build
+    clean_build()
 
     if target:
         run_build(target)
