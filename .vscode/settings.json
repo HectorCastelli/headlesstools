@@ -7,5 +7,9 @@
   ],
   "files.associations": {
     "*.mcmeta": "json"
-  }
+  },
+  "spyglassmc.env.gameVersion": "Latest release",
+  "mc-dp-icons.enableSubfolderIcons": true,
+  "mc-dp-icons.hideFolderArrows": false,
+  "datapackOptimization.rename.behavior": "includeComments",
 }
