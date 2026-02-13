@@ -4,6 +4,8 @@
     "misodee.vscode-nbt",
     "spgoding.datapack-language-server",
     "superant.mc-dp-icons",
-    "thesalt.datapack-optimization"
+    "thesalt.datapack-optimization",
+    "ms-python.python",
+    "charliermarsh.ruff"
   ]
 }

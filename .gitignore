@@ -1,5 +1,6 @@
 # Scripts
 .env
+__pycache__
 
 # Output
 dist/
