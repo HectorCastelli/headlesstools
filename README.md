@@ -1,4 +1,4 @@
-# HectorCastelli Packs
+# HectorCastelli's Minecraft Packs
 
 This is a [monorepo](https://monorepo.tools/) with multiple DataPacks and ResourcePacks developed by me, for myself.
 
