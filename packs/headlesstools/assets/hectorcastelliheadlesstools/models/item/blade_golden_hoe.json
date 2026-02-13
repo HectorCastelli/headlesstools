@@ -2,7 +2,7 @@
   "parent": "minecraft:item/handheld",
   "textures": {
     "layer0": "minecraft:item/golden_hoe",
-    "layer1": "minecraft:item/gold_nugget",
+    "layer1": "hectorcastelliheadlesstools:item/blade_nugget_gold",
     "layer2": "hectorcastelliheadlesstools:item/blade_overlay"
   }
 }

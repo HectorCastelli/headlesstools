@@ -5,3 +5,12 @@ A vanilla-friendly Datapack that implements ways to carry lots of tools when you
 It allows you to prepare tool blades before hand, and carry them in bulk with you.
 
 Once you are ready to use them, assemble without the need for a crafting table, and get to work!
+
+## Features
+
+- Adds a new item "Mounting Handle"
+- Adds a new category of items "Detached Tool Head" that can be:
+  - Stacked
+  - Bundled
+  - Enchanted
+  - combined with a "Mounting Handle" for a full tool
