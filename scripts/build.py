@@ -28,6 +28,7 @@ def run_build(pack_name):
     pack_data = mcmeta_data.get("pack", {})
     metadata = mcmeta_data.get("metadata", {})
     version = metadata.get("version")
+    minecraft_version = metadata.get("minecraft_version", "1.21.11")
     dp_meta = metadata.get("dp")
     rp_meta = metadata.get("rp")
     if version is None:
@@ -41,7 +42,10 @@ def run_build(pack_name):
         ("dp", "assets", dp_meta),
         ("rp", "data", rp_meta),
     ]:
-        out_file = DIST_DIR / f"{PREFIX}-{pack_name}-{version}-{suffix}.zip"
+        out_file = (
+            DIST_DIR
+            / f"{PREFIX}-{pack_name}-{minecraft_version}-{version}-{suffix}.zip"
+        )
         with zipfile.ZipFile(out_file, "w", zipfile.ZIP_DEFLATED) as zf:
             # Copy global files (e.g., LICENSE)
             zf.write(REPO_ROOT / "LICENSE", "LICENSE")
