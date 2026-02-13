@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import json
 import zipfile
 import logging
@@ -67,8 +69,14 @@ def run_build(pack_name):
         created_files.append(out_file)
         logging.debug(f"Created {suffix}pack for {pack_name}")
 
-    logging.info(f"Built {pack_name}: {created_files}")
+    logging.info(f"Built {pack_name}: {' '.join([f.name for f in created_files])}")
     return created_files
+
+
+def clean_build():
+    # Initialize dist directory
+    shutil.rmtree(DIST_DIR, ignore_errors=True)
+    DIST_DIR.mkdir(exist_ok=True)
 
 
 if __name__ == "__main__":
@@ -77,9 +85,7 @@ if __name__ == "__main__":
     # Handle single arg or build all
     target = sys.argv[1] if len(sys.argv) > 1 else None
 
-    # Initialize dist directory
-    shutil.rmtree(DIST_DIR, ignore_errors=True)
-    DIST_DIR.mkdir(exist_ok=True)
+    clean_build
 
     if target:
         run_build(target)
