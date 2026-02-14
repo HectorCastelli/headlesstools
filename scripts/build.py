@@ -4,7 +4,7 @@ import json
 import zipfile
 import logging
 import shutil
-from utils import PREFIX, REPO_ROOT, DIST_DIR, PACKS_DIR
+from utils import REPO_ROOT, DIST_DIR, PACKS_DIR
 
 
 def run_build(pack_name):
@@ -45,10 +45,7 @@ def run_build(pack_name):
         ("dp", "assets", dp_meta),
         ("rp", "data", rp_meta),
     ]:
-        out_file = (
-            DIST_DIR
-            / f"{PREFIX}-{pack_name}-{minecraft_version}-{version}-{suffix}.zip"
-        )
+        out_file = DIST_DIR / f"{pack_name}-{version}-{minecraft_version}-{suffix}.zip"
         with zipfile.ZipFile(out_file, "w", zipfile.ZIP_DEFLATED) as zf:
             # Copy global files (e.g., LICENSE)
             zf.write(REPO_ROOT / "LICENSE", "LICENSE")

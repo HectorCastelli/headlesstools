@@ -8,9 +8,6 @@ REPO_ROOT = SCRIPTS_DIR.parent
 PACKS_DIR = REPO_ROOT / "packs"
 DIST_DIR = REPO_ROOT / "dist"
 
-# Setup global constants
-PREFIX = "HectorCastelli"
-
 
 def setup_logging():
     """
