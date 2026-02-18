@@ -2,6 +2,7 @@
 
 import time
 import logging
+from datetime import datetime
 from utils import PACKS_DIR
 from build import run_build, clean_build
 from install import run_install
@@ -66,6 +67,7 @@ def watch():
                     build_files = run_build(pack_name)
                     run_install(build_files)
 
+                logging.info(f"Rebuilt at {datetime.now()}\n")
                 snapshot = current
 
     except KeyboardInterrupt:
