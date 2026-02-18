@@ -1,0 +1,1 @@
+execute as @a[scores={use_cooldown_count=1..}] run scoreboard players remove @s use_cooldown_count 1

@@ -1,0 +1,17 @@
+[
+  {
+    "function": "minecraft:set_components",
+    "components": {
+      "minecraft:item_name": "Crude Bucket",
+      "!minecraft:damage": {},
+      "!minecraft:max_damage": {},
+      "minecraft:item_model": "bucketless:crude_bucket"
+    }
+  },
+  {
+    "function": "minecraft:set_custom_data",
+    "tag": {
+      "full": false
+    }
+  }
+]

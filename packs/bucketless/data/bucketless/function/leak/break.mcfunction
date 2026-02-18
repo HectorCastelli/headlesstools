@@ -1,0 +1,40 @@
+# Handle hotbar
+execute if items entity @s hotbar.0 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s hotbar.0 with minecraft:air
+execute if items entity @s hotbar.1 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s hotbar.1 with minecraft:air
+execute if items entity @s hotbar.2 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s hotbar.2 with minecraft:air
+execute if items entity @s hotbar.3 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s hotbar.3 with minecraft:air
+execute if items entity @s hotbar.4 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s hotbar.4 with minecraft:air
+execute if items entity @s hotbar.5 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s hotbar.5 with minecraft:air
+execute if items entity @s hotbar.6 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s hotbar.6 with minecraft:air
+execute if items entity @s hotbar.7 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s hotbar.7 with minecraft:air
+execute if items entity @s hotbar.8 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s hotbar.8 with minecraft:air
+# Handle inventory slots
+execute if items entity @s inventory.0 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.0 with minecraft:air
+execute if items entity @s inventory.1 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.1 with minecraft:air
+execute if items entity @s inventory.2 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.2 with minecraft:air
+execute if items entity @s inventory.3 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.3 with minecraft:air
+execute if items entity @s inventory.4 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.4 with minecraft:air
+execute if items entity @s inventory.5 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.5 with minecraft:air
+execute if items entity @s inventory.6 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.6 with minecraft:air
+execute if items entity @s inventory.7 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.7 with minecraft:air
+execute if items entity @s inventory.8 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.8 with minecraft:air
+execute if items entity @s inventory.9 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.9 with minecraft:air
+execute if items entity @s inventory.10 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.10 with minecraft:air
+execute if items entity @s inventory.11 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.11 with minecraft:air
+execute if items entity @s inventory.12 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.12 with minecraft:air
+execute if items entity @s inventory.13 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.13 with minecraft:air
+execute if items entity @s inventory.14 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.14 with minecraft:air
+execute if items entity @s inventory.15 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.15 with minecraft:air
+execute if items entity @s inventory.16 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.16 with minecraft:air
+execute if items entity @s inventory.17 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.17 with minecraft:air
+execute if items entity @s inventory.18 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.18 with minecraft:air
+execute if items entity @s inventory.19 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.19 with minecraft:air
+execute if items entity @s inventory.20 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.20 with minecraft:air
+execute if items entity @s inventory.21 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.21 with minecraft:air
+execute if items entity @s inventory.22 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.22 with minecraft:air
+execute if items entity @s inventory.23 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.23 with minecraft:air
+execute if items entity @s inventory.24 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.24 with minecraft:air
+execute if items entity @s inventory.25 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.25 with minecraft:air
+execute if items entity @s inventory.26 *[minecraft:custom_data~{bucketless:true,leak:true,full:true},minecraft:damage=100] run item replace entity @s inventory.26 with minecraft:air
+# Play effects
+playsound minecraft:block.wood.break player @s ~ ~ ~ 1 1

@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": "minecraft:stick",
+    "#": "#minecraft:planks"
+  },
+  "pattern": [
+    "XXX",
+    "# #",
+    " # "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "bucketless": true,
+        "leak": true,
+        "burn": true,
+        "full": false
+      },
+      "minecraft:item_model": "bucketless:crude_bucket",
+      "minecraft:item_name": "Crude Bucket",
+      "minecraft:consumable": {
+        "consume_seconds": 123,
+        "animation": "none",
+        "has_consume_particles": false,
+        "sound": "item.bucket.fill"
+      },
+      "minecraft:food": {
+        "nutrition": 0,
+        "saturation": 0,
+        "can_always_eat": true
+      },
+      "minecraft:max_stack_size": 1
+    },
+    "count": 1,
+    "id": "minecraft:bowl"
+  }
+}

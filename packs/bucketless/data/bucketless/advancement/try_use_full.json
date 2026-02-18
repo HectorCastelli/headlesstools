@@ -1,0 +1,19 @@
+{
+  "criteria": {
+    "consumed": {
+      "trigger": "minecraft:using_item",
+      "conditions": {
+        "item": {
+          "items": "minecraft:bowl",
+          "predicates": {
+            "minecraft:custom_data": "{bucketless:true,full:true}",
+            "minecraft:consumable": {}
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "bucketless:use_full"
+  }
+}

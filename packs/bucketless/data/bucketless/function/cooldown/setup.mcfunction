@@ -1,0 +1,1 @@
+scoreboard players add @a use_cooldown_count 1

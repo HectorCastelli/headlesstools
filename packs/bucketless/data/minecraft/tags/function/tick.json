@@ -1,0 +1,6 @@
+{
+  "values": [
+    "bucketless:leak/tick",
+    "bucketless:cooldown/tick"
+  ]
+}
