@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:item/handheld",
-  "textures": {
-    "layer0": "hectorcastelliheadlesstools:item/blade_iron_axe",
-    "layer1": "hectorcastelliheadlesstools:item/blade_nugget_iron",
-    "layer2": "hectorcastelliheadlesstools:item/blade_overlay"
-  }
-}

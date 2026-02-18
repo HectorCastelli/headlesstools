@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "headlesstools:item/blade_iron_hoe",
+    "layer1": "headlesstools:item/blade_nugget_iron",
+    "layer2": "headlesstools:item/blade_overlay"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "parent": "story/upgrade_tools",
+  "criteria": {
+    "learned_handle": {
+      "conditions": {
+        "recipe": "headlesstools:handle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "crafted_handle": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "headlesstools:handle"
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "text": "Craft some handles"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:stick"
+    },
+    "title": {
+      "text": "A good handle on things"
+    }
+  },
+  "requirements": [
+    [
+      "learned_handle"
+    ],
+    [
+      "crafted_handle"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

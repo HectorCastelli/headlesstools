@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "N": [
+      "minecraft:copper_nugget"
+    ],
+    "X": [
+      "minecraft:copper_ingot"
+    ]
+  },
+  "pattern": [
+    "XX ",
+    "X N"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_data": {
+        "headlesstools": true,
+        "type": "tool_blade"
+      },
+      "minecraft:item_model": "headlesstools:blade_copper_axe",
+      "minecraft:item_name": "Detached Copper Axe",
+      "minecraft:max_stack_size": 16,
+      "!minecraft:tool": {},
+      "!minecraft:max_damage": {}
+    },
+    "count": 1,
+    "id": "minecraft:copper_axe"
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "parent": "headlesstools:story/craft_handle",
+  "criteria": {
+    "crafted_blade_copper_axe": {
+      "conditions": {
+        "recipe_id": "headlesstools:blade_copper_axe"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "crafted_blade_copper_hoe": {
+      "conditions": {
+        "recipe_id": "headlesstools:blade_copper_hoe"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "crafted_blade_copper_pickaxe": {
+      "conditions": {
+        "recipe_id": "headlesstools:blade_copper_pickaxe"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "crafted_blade_copper_shovel": {
+      "conditions": {
+        "recipe_id": "headlesstools:blade_copper_shovel"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "crafted_blade_golden_axe": {
+      "conditions": {
+        "recipe_id": "headlesstools:blade_golden_axe"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "crafted_blade_golden_hoe": {
+      "conditions": {
+        "recipe_id": "headlesstools:blade_golden_hoe"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "crafted_blade_golden_pickaxe": {
+      "conditions": {
+        "recipe_id": "headlesstools:blade_golden_pickaxe"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "crafted_blade_golden_shovel": {
+      "conditions": {
+        "recipe_id": "headlesstools:blade_golden_shovel"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "crafted_blade_iron_axe": {
+      "conditions": {
+        "recipe_id": "headlesstools:blade_iron_axe"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "crafted_blade_iron_hoe": {
+      "conditions": {
+        "recipe_id": "headlesstools:blade_iron_hoe"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "crafted_blade_iron_pickaxe": {
+      "conditions": {
+        "recipe_id": "headlesstools:blade_iron_pickaxe"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "crafted_blade_iron_shovel": {
+      "conditions": {
+        "recipe_id": "headlesstools:blade_iron_shovel"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "crafted_blade_netherite_axe": {
+      "conditions": {
+        "recipe_id": "headlesstools:blade_netherite_axe"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "crafted_blade_netherite_hoe": {
+      "conditions": {
+        "recipe_id": "headlesstools:blade_netherite_hoe"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "crafted_blade_netherite_pickaxe": {
+      "conditions": {
+        "recipe_id": "headlesstools:blade_netherite_pickaxe"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "crafted_blade_netherite_shovel": {
+      "conditions": {
+        "recipe_id": "headlesstools:blade_netherite_shovel"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    }
+  },
+  "display": {
+    "description": {
+      "text": "Craft a Detached Blade"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:golden_pickaxe"
+    },
+    "title": {
+      "text": "Ready to travel"
+    }
+  },
+  "requirements": [
+    [
+      "crafted_blade_copper_axe",
+      "crafted_blade_copper_hoe",
+      "crafted_blade_copper_pickaxe",
+      "crafted_blade_copper_shovel",
+      "crafted_blade_golden_axe",
+      "crafted_blade_golden_hoe",
+      "crafted_blade_golden_pickaxe",
+      "crafted_blade_golden_shovel",
+      "crafted_blade_iron_axe",
+      "crafted_blade_iron_hoe",
+      "crafted_blade_iron_pickaxe",
+      "crafted_blade_iron_shovel",
+      "crafted_blade_netherite_axe",
+      "crafted_blade_netherite_hoe",
+      "crafted_blade_netherite_pickaxe",
+      "crafted_blade_netherite_shovel"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
