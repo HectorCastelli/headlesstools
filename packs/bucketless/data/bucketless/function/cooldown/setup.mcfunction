@@ -1,1 +1,2 @@
-scoreboard players add @a use_cooldown_count 1
+scoreboard objectives add use_cooldown_count dummy
+scoreboard players set @a use_cooldown_count 0
