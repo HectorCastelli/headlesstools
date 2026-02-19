@@ -1,21 +1,5 @@
 import os
-import logging
-from pathlib import Path
-
-# Setup relative paths
-SCRIPTS_DIR = Path(__file__).parent
-REPO_ROOT = SCRIPTS_DIR.parent
-PACKS_DIR = REPO_ROOT / "packs"
-DIST_DIR = REPO_ROOT / "dist"
-
-
-def setup_logging():
-    """
-    Configures standard logging to respect LOG_ENV
-    """
-    logging.basicConfig(
-        level=os.getenv("LOG_LEVEL", "INFO"), format="%(levelname)s: %(message)s"
-    )
+from .paths import SCRIPTS_DIR
 
 
 def load_env():
@@ -38,8 +22,3 @@ def is_debug():
         return True
     else:
         return False
-
-
-# Immediately load the env and setup logging when imported
-load_env()
-setup_logging()
