@@ -7,6 +7,6 @@ data modify entity @e[tag=temp_item, limit=1] Item.components."minecraft:enchant
 # Remove the leftover tag
 tag @e[tag=temp_item] remove temp_item
 # Remove a nearby stick
-kill @e[type=item, distance=..0.5, limit=1, nbt={OnGround:true,Item:{id:"minecraft:stick", components:{"minecraft:custom_data":{headlesstools:true,type:"handle"}}}}]
+kill @e[type=item, distance=..0.7, limit=1, nbt={OnGround:true,Item:{id:"minecraft:stick", components:{"minecraft:custom_data":{headlesstools:true,type:"handle"}}}}]
 # Remove the leftover blade
 kill @s

@@ -3,7 +3,7 @@
     "description": "A vanilla friendly way to carry multiple tools with you and assemble them on-the-go!"
   },
   "metadata": {
-    "version": "2.0.0",
+    "version": "2.1.0",
     "minecraft_version": "1.21.11",
     "dp": {
       "min_format": [

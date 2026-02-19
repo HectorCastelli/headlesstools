@@ -15,6 +15,12 @@
 - 
 -->
 
+## 2.1.0
+
+### Features
+
+- Expand crafting range
+
 ## 2.0.0
 
 ### Breaking changes
