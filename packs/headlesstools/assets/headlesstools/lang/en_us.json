@@ -1,0 +1,23 @@
+{
+  "advancements.story.craft_handle.title": "A good handle on things",
+  "advancements.story.craft_handle.description": "Craft a Mounting Handle",
+  "advancements.story.craft_blade.title": "Ready to travel",
+  "advancements.story.craft_blade.description": "Craft a Detached Tool Blade",
+  "item.headlesstools.handle": "Mounting Handle",
+  "item.headlesstools.blade_copper_axe": "Detached Copper Axe",
+  "item.headlesstools.blade_copper_pickaxe": "Detached Copper Pickaxe",
+  "item.headlesstools.blade_copper_hoe": "Detached Copper Hoe",
+  "item.headlesstools.blade_copper_shovel": "Detached Copper Shovel",
+  "item.headlesstools.blade_iron_axe": "Detached Iron Axe",
+  "item.headlesstools.blade_iron_pickaxe": "Detached Iron Pickaxe",
+  "item.headlesstools.blade_iron_hoe": "Detached Iron Hoe",
+  "item.headlesstools.blade_iron_shovel": "Detached Iron Shovel",
+  "item.headlesstools.blade_golden_axe": "Detached Golden Axe",
+  "item.headlesstools.blade_golden_pickaxe": "Detached Golden Pickaxe",
+  "item.headlesstools.blade_golden_hoe": "Detached Golden Hoe",
+  "item.headlesstools.blade_golden_shovel": "Detached Golden Shovel",
+  "item.headlesstools.blade_netherite_axe": "Detached Netherite Axe",
+  "item.headlesstools.blade_netherite_pickaxe": "Detached Netherite Pickaxe",
+  "item.headlesstools.blade_netherite_hoe": "Detached Netherite Hoe",
+  "item.headlesstools.blade_netherite_shovel": "Detached Netherite Shovel"
+}

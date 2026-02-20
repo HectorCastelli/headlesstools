@@ -1,0 +1,23 @@
+{
+  "advancements.story.craft_handle.title": "Tudo sob controle",
+  "advancements.story.craft_handle.description": "Fabrique um Cabo de Montagem",
+  "advancements.story.craft_blade.title": "Pronto para viajar",
+  "advancements.story.craft_blade.description": "Fabrique uma Ferramenta Desacoplada",
+  "item.headlesstools.handle": "Cabo de Montagem",
+  "item.headlesstools.blade_copper_axe": "Machado de Cobre Desacoplado",
+  "item.headlesstools.blade_copper_pickaxe": "Picareta de Cobre Desacoplada",
+  "item.headlesstools.blade_copper_hoe": "Enxada de Cobre Desacoplada",
+  "item.headlesstools.blade_copper_shovel": "Pá de Cobre Desacoplada",
+  "item.headlesstools.blade_iron_axe": "Machado de Ferro Desacoplado",
+  "item.headlesstools.blade_iron_pickaxe": "Picareta de Ferro Desacoplada",
+  "item.headlesstools.blade_iron_hoe": "Enxada de Ferro Desacoplada",
+  "item.headlesstools.blade_iron_shovel": "Pá de Ferro Desacoplada",
+  "item.headlesstools.blade_golden_axe": "Machado de Ouro Desacoplado",
+  "item.headlesstools.blade_golden_pickaxe": "Picareta de Ouro Desacoplada",
+  "item.headlesstools.blade_golden_hoe": "Enxada de Ouro Desacoplada",
+  "item.headlesstools.blade_golden_shovel": "Pá de Ouro Desacoplada",
+  "item.headlesstools.blade_netherite_axe": "Machado de Netuerita Desacoplado",
+  "item.headlesstools.blade_netherite_pickaxe": "Picareta de Netuerita Desacoplada",
+  "item.headlesstools.blade_netherite_hoe": "Enxada de Netuerita Desacoplada",
+  "item.headlesstools.blade_netherite_shovel": "Pá de Netuerita Desacoplada"
+}

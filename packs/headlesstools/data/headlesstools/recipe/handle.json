@@ -17,7 +17,9 @@
         "type": "handle"
       },
       "minecraft:item_model": "headlesstools:handle",
-      "minecraft:item_name": "Mounting Handle",
+      "minecraft:item_name": {
+        "translate": "item.headlesstools.handle"
+      },
       "minecraft:max_stack_size": 64
     },
     "count": 1,

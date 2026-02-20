@@ -16,14 +16,14 @@
   },
   "display": {
     "description": {
-      "text": "Craft some handles"
+      "translate": "advancements.story.craft_handle.description"
     },
     "icon": {
       "count": 1,
       "id": "minecraft:stick"
     },
     "title": {
-      "text": "A good handle on things"
+      "translate": "advancements.story.craft_handle.title"
     }
   },
   "requirements": [

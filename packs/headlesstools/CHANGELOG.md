@@ -15,6 +15,13 @@
 - 
 -->
 
+## 2.2.0
+
+### Features
+
+- Add support for translations
+- Include Brazilian Portuguese (`pt_br`) language
+
 ## 2.1.0
 
 ### Features

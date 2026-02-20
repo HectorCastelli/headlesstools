@@ -100,14 +100,14 @@
   },
   "display": {
     "description": {
-      "text": "Craft a Detached Blade"
+      "translate": "advancements.story.craft_blade.description"
     },
     "icon": {
       "count": 1,
       "id": "minecraft:golden_pickaxe"
     },
     "title": {
-      "text": "Ready to travel"
+      "translate": "advancements.story.craft_blade.title"
     }
   },
   "requirements": [
