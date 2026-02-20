@@ -14,6 +14,12 @@
 
 - 
 -->
+## 1.1.0
+
+### Features
+
+- Add support for translations
+- Include Brazilian Portuguese (`pt_br`) language
 
 ## 1.0.1
 

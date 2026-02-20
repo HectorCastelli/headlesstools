@@ -19,7 +19,9 @@
         "full": false
       },
       "minecraft:item_model": "bucketless:crude_bucket",
-      "minecraft:item_name": "Crude Bucket",
+      "minecraft:item_name": {
+        "translate": "item.bucketless.crude_bucket"
+      },
       "minecraft:consumable": {
         "consume_seconds": 123,
         "animation": "none",

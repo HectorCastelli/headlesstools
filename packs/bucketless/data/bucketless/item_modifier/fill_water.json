@@ -2,7 +2,9 @@
   {
     "function": "minecraft:set_components",
     "components": {
-      "minecraft:item_name": "Crude Water Bucket",
+      "minecraft:item_name": {
+        "translate": "item.bucketless.crude_bucket_water"
+      },
       "minecraft:damage": 0,
       "minecraft:max_damage": 100,
       "minecraft:item_model": "bucketless:crude_bucket_water"
