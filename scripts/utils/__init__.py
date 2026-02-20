@@ -1,6 +1,6 @@
 from .env import load_env, is_debug
 from .logging import setup_logging
-from .paths import SCRIPTS_DIR, REPO_ROOT, PACKS_DIR, DIST_DIR
+from .constants import SCRIPTS_DIR, REPO_ROOT, PACKS_DIR, DIST_DIR, REPO_URL
 
 # Re-export to other scripts
 __all__ = [
@@ -8,6 +8,7 @@ __all__ = [
     REPO_ROOT,
     PACKS_DIR,
     DIST_DIR,
+    REPO_URL,
     setup_logging,
     load_env,
     is_debug,

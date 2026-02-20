@@ -4,7 +4,54 @@ import zipfile
 import logging
 import shutil
 from pathlib import Path
-from utils import REPO_ROOT, DIST_DIR, PACKS_DIR, is_debug
+import build.templates as templates
+from utils import REPO_URL, REPO_ROOT, DIST_DIR, PACKS_DIR, is_debug
+
+
+def get_pack_files(pack_src, pack_name, exclude_dir=None):
+    """Yields (source_path, archive_path) for every file in the pack."""
+    # Always include the license from repo root
+    yield (REPO_ROOT / "LICENSE", Path("LICENSE"))
+
+    for file in pack_src.rglob("*"):
+        if not file.is_file():
+            continue
+
+        rel_path = file.relative_to(pack_src)
+        parts = rel_path.parts
+
+        # Filter: Skip marketing or explicitly excluded dirs (assets/data)
+        if "marketing" in parts or (exclude_dir and exclude_dir in parts):
+            continue
+
+        # Filter: Handle testing logic
+        if "test" in parts:
+            if is_debug():
+                # Replace "test" folder in path with the pack name
+                rel_path = Path(*(pack_name if p == "test" else p for p in parts))
+            else:
+                continue
+
+        yield (file, rel_path)
+
+
+def create_zip(out_path, file_generator, extra_files=None):
+    """
+    Creates zip files based on the generator and handle common filtering/adding logic.
+    """
+    with zipfile.ZipFile(out_path, "w", zipfile.ZIP_DEFLATED) as zf:
+        if is_debug():
+            zf.writestr(
+                "DEBUG",
+                "This is a debug build and may have extra functionality that won't show up in regular game. Be careful!",
+            )
+
+        for src, arc in file_generator:
+            zf.write(src, arc)
+
+        if extra_files:
+            for name, content in extra_files.items():
+                zf.writestr(name, content)
 
 
 def run_build(pack_name):
@@ -12,221 +59,75 @@ def run_build(pack_name):
     Builds a pack directory into the required .zip files
     """
     pack_src = PACKS_DIR / pack_name
-    mcmeta_file = PACKS_DIR / pack_name / "pack.mcmeta"
-    if not pack_src.exists():
-        logging.error(f"Source folder not found: {pack_src}")
-        return None
-    if not mcmeta_file.exists():
-        logging.error(f"Source folder does not have a pack.mcmeta file: {pack_src}")
+    mcmeta_path = pack_src / "pack.mcmeta"
+
+    if not pack_src.exists() or not mcmeta_path.exists():
+        logging.error(f"Missing source or mcmeta for {pack_name}")
         return None
 
     try:
-        with open(mcmeta_file, "r") as f:
+        with open(mcmeta_path, "r") as f:
             mcmeta_data = json.load(f)
-            logging.debug(f"Read mcmeta for {pack_name}")
     except json.JSONDecodeError:
-        logging.error(f"Failed to parse JSON in {mcmeta_file}")
+        logging.error(f"Failed to parse JSON in {mcmeta_path}")
         return None
 
-    pack_data = mcmeta_data.get("pack", {})
     metadata = mcmeta_data.get("metadata", {})
-    version = metadata.get("version")
-    minecraft_version = metadata.get("minecraft_version", "1.21.11")
-    dp_meta = metadata.get("dp")
-    rp_meta = metadata.get("rp")
-    if version is None:
-        logging.error(f"Pack {pack_name} has no 'version' defined in 'metadata'")
-        return None
+    pack_conf = mcmeta_data.get("pack", {})
+    modrinth_conf = metadata.get("modrinth", {})
+    version = metadata.get("version", "0.0.1")
+    mc_ver = metadata.get("minecraft_version", "1.21.11")
 
-    created_files = []
+    # Context for templates
+    ctx = {
+        "id": pack_name,
+        "version": version,
+        "description": pack_conf.get("description", ""),
+        "homepage": f"https://modrinth.com/datapack/{modrinth_conf.get('project_name')}",
+        "sources": f"{REPO_URL}/tree/main/packs/{pack_name}",
+        "issues": f"{REPO_URL}/issues",
+    }
 
-    # Build packs
-    for suffix, exclude_dir, extra_mcmeta in [
-        ("dp", "assets", dp_meta),
-        ("rp", "data", rp_meta),
-    ]:
-        out_file = DIST_DIR / f"{pack_name}-{version}-{minecraft_version}-{suffix}.zip"
-        with zipfile.ZipFile(out_file, "w", zipfile.ZIP_DEFLATED) as zf:
-            # Add debug notice
-            if is_debug():
-                zf.writestr(
-                    "DEBUG",
-                    "This is a debug build and may have extra functionality that won't show up in regular game. Be careful!",
-                )
-
-            # Copy global files (e.g., LICENSE)
-            zf.write(REPO_ROOT / "LICENSE", "LICENSE")
-
-            # Copy pack files with exclusions
-            for file in pack_src.rglob("*"):
-                if file.is_file():
-                    rel_path = file.relative_to(pack_src)
-
-                    # Skip original mcmeta if it should be rewritten
-                    if extra_mcmeta and rel_path.name == "pack.mcmeta":
-                        continue
-
-                    # Skip the marketing directory
-                    if "marketing" in rel_path.parts:
-                        continue
-
-                    # Handle testing functions
-                    if "test" in rel_path.parts:
-                        if is_debug():
-                            # Replace "test" in rel_path with "pack_name"
-                            patched_path = Path(
-                                *(
-                                    pack_name if part == "test" else part
-                                    for part in rel_path.parts
-                                )
-                            )
-                            zf.write(file, patched_path)
-                            continue  # Avoid saving the same file twice
-                        else:
-                            continue
-
-                    # If the directory was explicitly excluded
-                    if exclude_dir in rel_path.parts:
-                        continue
-
-                    zf.write(file, rel_path)
-
-            # Generate a pack.mcmeta if needed
-            if extra_mcmeta:
-                final_mcmeta = {"pack": {**pack_data, **extra_mcmeta}}
-                zf.writestr("pack.mcmeta", json.dumps(final_mcmeta, indent=2))
-
-        created_files.append(out_file)
-        logging.debug(f"Created {suffix}pack for {pack_name}")
-
-    # Build universal mod package
-    out_file = DIST_DIR / f"{pack_name}-{version}-{minecraft_version}-mod.zip"
-    with zipfile.ZipFile(out_file, "w", zipfile.ZIP_DEFLATED) as zf:
-        # Add debug notice
-        if is_debug():
-            zf.writestr(
-                "DEBUG",
-                "This is a debug build and may have extra functionality that won't show up in regular game. Be careful!",
-            )
-
-        # Copy global files (e.g., LICENSE)
-        zf.write(REPO_ROOT / "LICENSE", "LICENSE")
-
-        # Copy pack files
-        for file in pack_src.rglob("*"):
-            if file.is_file():
-                rel_path = file.relative_to(pack_src)
-
-                # Skip the marketing directory
-                if "marketing" in rel_path.parts:
-                    continue
-
-                # Handle testing functions
-                if "test" in rel_path.parts:
-                    if is_debug():
-                        # Replace "test" in rel_path with "pack_name"
-                        patched_path = Path(
-                            *(
-                                pack_name if part == "test" else part
-                                for part in rel_path.parts
-                            )
-                        )
-                        zf.write(file, patched_path)
-                        continue  # Avoid saving the same file twice
-                    else:
-                        continue
-
-                zf.write(file, rel_path)
-
-        # Copy universal files
-        quit_definition = {
-            "schema_version": 1,
-            "quilt_loader": {
-                "group": "io.github.hectorcastelli",
-                "id": pack_name,
-                "version": version,
-                "metadata": {
-                    "name": pack_name,
-                    "description": pack_data.get("description"),
-                    "contributors": {"HectorCastelli": "Member"},
-                    "contact": {
-                        "homepage": f"https://modrinth.com/datapack/{metadata.get('modrinth').get('project_name')}",
-                        "sources": f"https://github.com/HectorCastelli/minecraftpacks/tree/main/packs/{pack_name}",
-                        "issues": "https://github.com/HectorCastelli/minecraftpacks/issues",
-                    },
-                    "icon": "pack.png",
-                },
-                "intermediate_mappings": "net.fabricmc:intermediary",
-                "depends": [
-                    {
-                        "id": "quilt_resource_loader",
-                        "versions": "*",
-                        "unless": "fabric-resource-loader-v0",
-                    }
-                ],
+    # Define the Build Plan
+    plans = [
+        {"suffix": "dp", "exclude": "assets", "mcmeta_patch": metadata.get("dp")},
+        {"suffix": "rp", "exclude": "data", "mcmeta_patch": metadata.get("rp")},
+        {
+            "suffix": "mod",
+            "exclude": None,
+            "mcmeta_patch": None,
+            "virtual_files": {
+                "fabric.mod.json": templates.get_fabric_json(ctx),
+                "quilt.mod.json": templates.get_quilt_json(ctx),
+                "META-INF/mods.toml": templates.get_forge_toml(ctx, "lowcodefml"),
+                "META-INF/neoforge.mods.toml": templates.get_forge_toml(ctx, "javafml"),
             },
-        }
-        zf.writestr("quilt.mod.json", json.dumps(quit_definition, indent=2))
+        },
+    ]
 
-        fabric_definition = {
-            "schemaVersion": 1,
-            "id": pack_name,
-            "version": version,
-            "name": pack_name,
-            "description": pack_data.get("description"),
-            "authors": ["HectorCastelli"],
-            "contact": {
-                "homepage": f"https://modrinth.com/datapack/{metadata.get('modrinth').get('project_name')}",
-                "sources": f"https://github.com/HectorCastelli/minecraftpacks/tree/main/packs/{pack_name}",
-                "issues": "https://github.com/HectorCastelli/minecraftpacks/issues",
-            },
-            "license": "Unlicense",
-            "icon": "pack.png",
-            "environment": "*",
-            "depends": {"fabric-resource-loader-v0": "*"},
-        }
-        zf.writestr("fabric.mod.json", json.dumps(fabric_definition, indent=2))
+    created = []
+    for p in plans:
+        out_file = (
+            DIST_DIR
+            / f"{pack_name}-{version}-{mc_ver}-{p['suffix']}.{'jar' if p['suffix'] == 'mod' else 'zip'}"
+        )
 
-        forge_definition = f"""modLoader = "lowcodefml"
-loaderVersion = "[40,)"
-license = "Unlicense"
-showAsResourcePack = false
-issueTrackerURL = "https://github.com/HectorCastelli/minecraftpacks/issues"
+        # 1. Prepare file stream
+        files = get_pack_files(pack_src, pack_name, p["exclude"])
 
-[[mods]]
-modId = "{pack_name}"
-version = "{version}"
-displayName = "{pack_name}"
-description = "{pack_data.get("description")}"
-logoFile = "pack.png"
-updateJSONURL = "https://api.modrinth.com/updates/oJ1q5vHh/forge_updates.json"
-authors = "HectorCastelli"
-displayURL = "https://modrinth.com/datapack/{metadata.get("modrinth").get("project_name")}"
-"""
-        zf.writestr("META-INF/mods.toml", forge_definition)
+        # 2. Handle dynamic mcmeta overwriting
+        extras = p.get("virtual_files", {}).copy()
+        if p["mcmeta_patch"]:
+            files = ((s, a) for s, a in files if a.name != "pack.mcmeta")
+            new_mcmeta = {"pack": {**pack_conf, **p["mcmeta_patch"]}}
+            extras["pack.mcmeta"] = json.dumps(new_mcmeta, indent=2)
 
-        neoforge_definition = f"""modLoader = "javafml"
-loaderVersion = "[1,)"
-license = "Unlicense"
-showAsResourcePack = false
-issueTrackerURL = "https://github.com/HectorCastelli/minecraftpacks/issues"
+        create_zip(out_file, files, extras)
+        created.append(out_file)
+        logging.debug(f"Created {p['suffix']} for {pack_name}")
 
-[[mods]]
-modId = "{pack_name}"
-version = "{version}"
-displayName = "{pack_name}"
-description = "{pack_data.get("description")}"
-logoFile = "pack.png"
-updateJSONURL = "https://api.modrinth.com/updates/oJ1q5vHh/forge_updates.json"
-authors = "HectorCastelli"
-displayURL = "https://modrinth.com/datapack/{metadata.get("modrinth").get("project_name")}"
-"""
-        zf.writestr("META-INF/neoforge.mods.toml", forge_definition)
-    created_files.append(out_file)
-    logging.debug(f"Created universal mod for {pack_name}")
-
-    logging.info(f"Built {pack_name}: {' '.join([f.name for f in created_files])}")
-    return created_files
+    logging.info(f"Built {pack_name}: {[f.name for f in created]}")
+    return created
 
 
 def clean_build():

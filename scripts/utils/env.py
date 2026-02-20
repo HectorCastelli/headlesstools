@@ -1,5 +1,5 @@
 import os
-from .paths import SCRIPTS_DIR
+from .constants import SCRIPTS_DIR
 
 
 def load_env():

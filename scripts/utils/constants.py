@@ -5,3 +5,6 @@ SCRIPTS_DIR = Path(__file__).parent.parent
 REPO_ROOT = SCRIPTS_DIR.parent
 PACKS_DIR = REPO_ROOT / "packs"
 DIST_DIR = REPO_ROOT / "dist"
+
+# Shared constants
+REPO_URL = "https://github.com/HectorCastelli/minecraftpacks"

@@ -24,6 +24,7 @@ def run_install(build_files):
     # Define standard Minecraft destination paths
     datapack_dir = Path(instance_path) / "saves" / WORLD_NAME / "datapacks"
     resource_dir = Path(instance_path) / "resourcepacks"
+    mods_dir = Path(instance_path) / "mods"
 
     try:
         # Ensure destination directories exist
@@ -44,12 +45,18 @@ def run_install(build_files):
                 shutil.copy2(file_path, dest)
                 logging.info(f"Installed Resourcepack: {filename}")
 
+            elif filename.lower().endswith("-mod.jar"):
+                dest = mods_dir / filename
+                shutil.copy2(file_path, dest)
+                logging.info(f"Installed Mod: {filename}")
+
             else:
-                # Copy to both as a fallback.
+                # Copy to all as a fallback.
                 shutil.copy2(file_path, datapack_dir / filename)
                 shutil.copy2(file_path, resource_dir / filename)
+                shutil.copy2(file_path, mods_dir / filename)
                 logging.warning(
-                    f"Installed unrecognized pack: {filename} (to both folders)"
+                    f"Installed unrecognized pack: {filename} (to all folders)"
                 )
 
     except Exception as e:
